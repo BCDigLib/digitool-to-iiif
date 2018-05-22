@@ -1,6 +1,7 @@
 # Dtliiif
 
-Builds a IIIF manifest from a DigiTool digital entity file using [osullivan](https://github.com/iiif-prezi/osullivan).
+Builds a IIIF manifest from a DigiTool digital entity file using [osullivan](https://github.com/iiif-prezi/osullivan). 
+Currently this gem only supports simple MARC objects.
 
 ## Installation
 
