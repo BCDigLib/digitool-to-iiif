@@ -18,3 +18,6 @@ de_fields:
   control: 'xb:digital_entity_call/xb:digital_entity/control'
   desc_md: 'xb:digital_entity_call/xb:digital_entity/mds/md[type="marc"]/value'
   preservation_md: 'xb:digital_entity_call/xb:digital_entity/mds/md[type="preservation_md"]/value'
+marc_fields:
+  field_540a: 'marc:record/marc:datafield[@tag="540"]/marc:subfield[@code="a"]'
+  field_940a: 'marc:record/marc:datafield[@tag="940"]/marc:subfield[@code="a"]'
