@@ -7,7 +7,7 @@ Currently this gem only supports simple MARC objects.
 
 To use the command line tool you will need to install locally. Clone or download this repository and install the gem:
 
-    $ git clone https://github.com/BCLibraries/digitool-to-iiif
+    $ git clone https://github.com/BCDigLib/digitool-to-iiif
     $ cd digitool-to-iiif
     $ gem build dtliiif.gemspec
     $ gem install ./dtliiif-x.x.x.gem
