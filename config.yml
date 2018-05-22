@@ -1,0 +1,20 @@
+# Leave fields blank to omit them from the manifest
+
+iiif_server:
+  host: iiif.bc.edu
+  path:
+  protocol: https
+manifest_server:
+  host: library.bc.edu
+  protocol: https
+  path: /iiif/manifests
+image_filetype: jp2
+namespaces:
+  xb: 'http://com/exlibris/digitool/repository/api/xmlbeans'
+  marc: 'http://www.loc.gov/MARC21/slim'
+  premis: 'http://www.loc.gov/standards/premis'
+de_fields:
+  pid: 'xb:digital_entity_call/xb:digital_entity/pid'
+  control: 'xb:digital_entity_call/xb:digital_entity/control'
+  desc_md: 'xb:digital_entity_call/xb:digital_entity/mds/md[type="marc"]/value'
+  preservation_md: 'xb:digital_entity_call/xb:digital_entity/mds/md[type="preservation_md"]/value'
