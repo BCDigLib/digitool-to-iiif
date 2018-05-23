@@ -15,12 +15,10 @@ module Dtliiif
       @sequence_base = "#{@iiif_host}/#{digital_entity_file.obj_id}"
 
       sequence = IIIF::Presentation::Sequence.new
-      # TODO: Update sequence canvas generator for dtl files
-      # sequence.canvases = mets_file.struct_map.map.with_index { |comp, i| image_annotation_from_id("#{comp}.#{@image_filetype}", "#{comp}", i) }
+      sequence.canvases = digital_entity.filenames.map.with_index { |comp, i| image_annotation_from_id("#{comp}.#{@image_filetype}", "#{comp}", i) }
 
       range = IIIF::Presentation::Range.new
-      # TODO: Update sequence canvas generator for dtl files
-      # range.ranges = mets_file.struct_map.map.with_index { |comp, i| build_range("#{comp}.#{@image_filetype}", "#{comp}", i) }
+      range.ranges = digital_entity.filenames.map.with_index { |comp, i| build_range("#{comp}.#{@image_filetype}", "#{comp}", i) }
 
       manifest = build_manifest(digital_entity_file)
       manifest.sequences << sequence
