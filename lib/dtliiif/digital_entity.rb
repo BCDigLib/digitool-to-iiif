@@ -94,7 +94,7 @@ module Dtliiif
     def rights_information
       access_condition = @cnf['marc_fields']['access_condition']
 
-      marc_record.xpath(access_condition, 'marc' => @marc_ns)
+      marc_record.xpath(access_condition, 'marc' => @marc_ns).text
     end
   end
 end
