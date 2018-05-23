@@ -5,6 +5,7 @@ require 'optparse'
 
 module Dtliiif
   def self.main
+    opt_parser = Opts.parse(ARGV)
     cnf = Opts.cnf
 
     iiif_host = build_server_string(cnf['iiif_server'])

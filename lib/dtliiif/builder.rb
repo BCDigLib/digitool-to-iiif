@@ -9,7 +9,7 @@ module Dtliiif
       @image_filetype = image_filetype
     end
 
-    def build(digital_entity_path, descmd)
+    def build(digital_entity_path)
       digital_entity_file = Dtliiif::DigitalEntity.new(digital_entity_path)
 
       @sequence_base = "#{@iiif_host}/#{digital_entity_file.obj_id}"
