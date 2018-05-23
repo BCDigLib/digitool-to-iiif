@@ -46,17 +46,15 @@ module Dtliiif
     end
 
     def image_annotation_from_id(image_file, label, order)
-      separator = image_file.include?('_') ? '_' : '.'
       image_id = image_file.chomp('.jp2').chomp('.tif').chomp('.tiff').chomp('.jpg')
-      page_id = image_id.split(separator).last
-
-      canvas_id = "#{@sequence_base}/canvas/#{page_id}"
+      canvas_id = "#{@sequence_base}/canvas/000#{order}"
 
       seed = {
           '@id' => "#{canvas_id}/annotation/1",
           'on' => canvas_id
       }
       annotation = IIIF::Presentation::Annotation.new(seed)
+      puts "Generating annotation for #{image_file}"
       annotation.resource = image_resource_from_page_hash(image_file)
 
       build_canvas(annotation, canvas_id, label)
@@ -74,12 +72,9 @@ module Dtliiif
     end
 
     def build_range(image_file, label, order)
-      separator = image_file.include?('_') ? '_' : '.'
       image_id = image_file.chomp('.jp2').chomp('.tif').chomp('.tiff').chomp('.jpg')
-      page_id = image_id.split(separator).last
-
       range_id = "#{@sequence_base}/range/r-#{order}"
-      canvas_id = "#{@sequence_base}/canvas/#{page_id}"
+      canvas_id = "#{@sequence_base}/canvas/000#{order}"
 
       seed = {
           '@id' => range_id,

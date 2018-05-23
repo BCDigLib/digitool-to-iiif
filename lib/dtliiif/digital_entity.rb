@@ -82,7 +82,7 @@ module Dtliiif
     def filenames
       streamref = @cnf['de_fields']['stream_ref']
 
-      @doc.xpath("#{streamref}/file_name").map { |f| f.text }
+      @doc.xpath("#{streamref}/file_name").map { |f| f.text.chomp('.jp2').chomp('.tif').chomp('.tiff').chomp('.jpg') }
     end
 
     def owner
