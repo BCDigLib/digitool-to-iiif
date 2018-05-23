@@ -25,7 +25,7 @@ module Dtliiif
       elsif collection_name == "The Becker Collection"
         resource_id = "becker_"
       elsif collection_name == "Thomas P. O'Neill, Jr. Congressional Papers photographs"
-        resource_id = ""
+        resource_id = "CA2009_001"
       elsif collection_name == "Boston Gas Company Records"
         resource_id = "MS1986_088"
       end
