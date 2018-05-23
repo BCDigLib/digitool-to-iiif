@@ -33,6 +33,16 @@ module Dtliiif
       resource_id + "_" + hdl_suffix
     end
 
+    def collection_id
+      if collection_name == "Liturgy and life collection"
+        "BC.2013.017"
+      elsif collection_name == "Thomas P. O'Neill, Jr. Congressional Papers photographs"
+        "CA.2009.001"
+      elsif collection_name == "Boston Gas Company Records"
+        "MS.1986.088"
+      end
+    end
+
     def collection_name
       collection_node = @cnf['marc_fields']['local_collection']
       local_collection = @doc.xpath("#{marc_record}/#{local_collection}", 'marc' => @marc_ns).text
