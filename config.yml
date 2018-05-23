@@ -10,14 +10,14 @@ manifest_server:
   path: /iiif/manifests
 image_filetype: jp2
 namespaces:
-  xb: 'http://com/exlibris/digitool/repository/api/xmlbeans'
   marc: 'http://www.loc.gov/MARC21/slim'
   premis: 'http://www.loc.gov/standards/premis'
 de_fields:
-  pid: 'xb:digital_entity_call/xb:digital_entity/pid'
   control: 'xb:digital_entity_call/xb:digital_entity/control'
   desc_md: 'xb:digital_entity_call/xb:digital_entity/mds/md[type="marc"]/value'
   preservation_md: 'xb:digital_entity_call/xb:digital_entity/mds/md[type="preservation_md"]/value'
+  stream_ref: 'xb:digital_entity_call/xb:digital_entity/stream_ref'
 marc_fields:
-  field_540a: 'marc:record/marc:datafield[@tag="540"]/marc:subfield[@code="a"]'
-  field_940a: 'marc:record/marc:datafield[@tag="940"]/marc:subfield[@code="a"]'
+  access_condition: 'marc:record/marc:datafield[@tag="540"]/marc:subfield[@code="a"]'
+  local_collection: 'marc:record/marc:datafield[@tag="940"]/marc:subfield[@code="a"]'
+  owner: 'marc:record/marc:datafield[@tag="533"]/marc:subfield[@code="c"]'
