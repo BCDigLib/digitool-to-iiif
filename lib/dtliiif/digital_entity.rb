@@ -79,7 +79,7 @@ module Dtliiif
       "http://hdl.handle.net/" + hdl
     end
 
-    def filename
+    def filenames
       streamref = @cnf['de_fields']['stream_ref']
 
       @doc.xpath("#{streamref}/file_name").map { |f| f.text }
