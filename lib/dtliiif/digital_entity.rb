@@ -11,14 +11,23 @@ module Dtliiif
 
     def marc_record
       descmd = @cnf['de_fields']['desc_md']
-      marc_node = @doc.xpath(descmd).content
+      marc_node = @doc.at_xpath(descmd).content
       marc_node = Nokogiri::XML(marc_node)
 
       marc_node
     end
 
+    def premis_record
+      presmd = @cnf['de_fields']['preservation_md']
+      premis_node = @doc.at_xpath(presmd).content
+      premis_node = Nokogiri::XML(premis_node)
+
+      premis_node
+    end
+
     def obj_id
-      hdl_suffix = @hdl.split('/').last
+      hdl = premis_record.xpath('premis:object/premis:objectIdentifier/premis:objectIdentifierValue', 'premis' => @premis_ns).text
+      hdl_suffix = hdl.split('/').last
 
       if collection_name == "Liturgy and life collection"
         resource_id = "BC2013_017"
@@ -45,13 +54,13 @@ module Dtliiif
 
     def collection_name
       collection_node = @cnf['marc_fields']['local_collection']
-      local_collection = @doc.xpath("#{marc_record}/#{local_collection}", 'marc' => @marc_ns).text
+      local_collection = marc_record.xpath(collection_node, 'marc' => @marc_ns).map { |el| el.text }
 
-      if local_collection == "LITURGY AND LIFE"
+      if local_collection.include?("LITURGY AND LIFE")
         "Liturgy and life collection"
-      elsif local_collection == "BECKER COLLECTION"
+      elsif local_collection.include?("BECKER COLLECTION")
         "The Becker Collection"
-      elsif local_collection == "CONGRESSIONAL ARCHIVES"
+      elsif local_collection.include?("CONGRESSIONAL ARCHIVES")
          "Thomas P. O'Neill, Jr. Congressional Papers (Tip O'Neill Papers) photographs"
       elsif marc_record.include?("Boston Gas")
         "Boston Gas Company Records"
@@ -65,12 +74,9 @@ module Dtliiif
     end
 
     def handle
-      presmd = @cnf['de_fields']['preservation_md']
-      premis_node = @doc.xpath(presmd).content
-      premis_node = Nokogiri::XML(premis_node)
-      @hdl = premis_node.xpath('premis:object/premis:objectIdentifier/premis:objectIdentifierValue', 'premis' => @premis_ns).text
+      hdl = premis_record.xpath('premis:object/premis:objectIdentifier/premis:objectIdentifierValue', 'premis' => @premis_ns).text
 
-      "http://hdl.handle.net/" + @hdl
+      "http://hdl.handle.net/" + hdl
     end
 
     def filename
@@ -82,13 +88,13 @@ module Dtliiif
     def owner
       owner = @cnf['marc_fields']['owner']
 
-      @doc.xpath("#{marc_record}/#{owner}", 'marc' => @marc_ns).text
+      marc_record.xpath(owner, 'marc' => @marc_ns).text
     end
 
     def rights_information
       access_condition = @cnf['marc_fields']['access_condition']
 
-      @doc.xpath("#{marc_record}/#{access_condition}", 'marc' => @marc_ns)
+      marc_record.xpath(access_condition, 'marc' => @marc_ns)
     end
   end
 end
