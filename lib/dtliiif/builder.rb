@@ -22,7 +22,7 @@ module Dtliiif
       # TODO: Update sequence canvas generator for dtl files
       # range.ranges = mets_file.struct_map.map.with_index { |comp, i| build_range("#{comp}.#{@image_filetype}", "#{comp}", i) }
 
-      manifest = build_manifest(mets_file)
+      manifest = build_manifest(digital_entity_file)
       manifest.sequences << sequence
       manifest.structures << range
       thumb = sequence.canvases.first.images.first.resource['@id'].gsub(/full\/full/, 'full/!200,200')
