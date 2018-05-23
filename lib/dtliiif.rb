@@ -1,19 +1,11 @@
 require 'dtliiif/version'
+require 'dtliiif/opts'
 require 'dtliiif/builder'
-require 'yaml'
+require 'optparse'
 
 module Dtliiif
   def self.main
-    OptionParser.new do |parser|
-      parser.banner = "Usage: metsiiif [options] /path/to/digital/entity/file"
-
-      parser.on("-h", "--help", "Show this help message") do ||
-        puts parser
-        exit
-      end
-    end.parse!
-
-    cnf = YAML::load_file(File.join(__dir__, '../config.yml'))
+    cnf = Opts.cnf
 
     iiif_host = build_server_string(cnf['iiif_server'])
     manifest_host = build_server_string(cnf['manifest_server'])
