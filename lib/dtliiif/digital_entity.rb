@@ -70,7 +70,7 @@ module Dtliiif
     def label
       control_node = @cnf['de_fields']['control']
 
-      @doc.xpath("#{control_node}/label").text
+      @doc.xpath("#{control_node}/label").text.chomp('.')
     end
 
     def handle
