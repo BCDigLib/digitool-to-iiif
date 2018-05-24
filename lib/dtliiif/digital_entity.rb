@@ -32,7 +32,7 @@ module Dtliiif
       if collection_name == "Liturgy and life collection"
         resource_id = "BC2013_017"
       elsif collection_name == "The Becker Collection"
-        resource_id = "becker_"
+        resource_id = "becker"
       elsif collection_name == "Thomas P. O'Neill, Jr. Congressional Papers (Tip O'Neill Papers) photographs"
         resource_id = "CA2009_001"
       elsif collection_name == "Boston Gas Company Records"
