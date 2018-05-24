@@ -33,7 +33,7 @@ module Dtliiif
         resource_id = "BC2013_017"
       elsif collection_name == "The Becker Collection"
         resource_id = "becker_"
-      elsif collection_name == "Thomas P. O'Neill, Jr. Congressional Papers photographs"
+      elsif collection_name == "Thomas P. O'Neill, Jr. Congressional Papers (Tip O'Neill Papers) photographs"
         resource_id = "CA2009_001"
       elsif collection_name == "Boston Gas Company Records"
         resource_id = "MS1986_088"
@@ -60,7 +60,7 @@ module Dtliiif
         "Liturgy and life collection"
       elsif local_collection.include?("BECKER COLLECTION")
         "The Becker Collection"
-      elsif local_collection.include?("CONGRESSIONAL ARCHIVES")
+      elsif local_collection.include?("CONGRESSIONAL ARCHIVE")
          "Thomas P. O'Neill, Jr. Congressional Papers (Tip O'Neill Papers) photographs"
       elsif marc_record.to_s.include?("Boston Gas")
         "Boston Gas Company Records"
