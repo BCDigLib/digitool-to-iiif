@@ -62,7 +62,7 @@ module Dtliiif
         "The Becker Collection"
       elsif local_collection.include?("CONGRESSIONAL ARCHIVES")
          "Thomas P. O'Neill, Jr. Congressional Papers (Tip O'Neill Papers) photographs"
-      elsif marc_node.to_s.include?("Boston Gas")
+      elsif marc_record.to_s.include?("Boston Gas")
         "Boston Gas Company Records"
       end
     end
