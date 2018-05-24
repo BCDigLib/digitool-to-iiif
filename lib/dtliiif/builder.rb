@@ -39,7 +39,7 @@ module Dtliiif
           'attribution' => "#{digital_entity_file.rights_information}",
           'metadata' => [
             {"handle": "#{digital_entity_file.handle}"},
-            {"label": "Preferred Citation", "value": "#{digital_entity_file.label}, #{digital_entity_file.collection_name}, #{digital_entity_file.collection_id}, #{digital_entity_file.owner}, #{digital_entity_file.handle}.}"}
+            {"label": "Preferred Citation", "value": "#{digital_entity_file.label}, #{digital_entity_file.collection_name}, #{digital_entity_file.collection_id}, #{digital_entity_file.owner}, #{digital_entity_file.handle}."}
           ]
       }
       IIIF::Presentation::Manifest.new(seed)
