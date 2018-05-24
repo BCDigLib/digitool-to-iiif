@@ -45,7 +45,7 @@ module Dtliiif
     def collection_id
       if collection_name == "Liturgy and life collection"
         "BC.2013.017"
-      elsif collection_name == "Thomas P. O'Neill, Jr. Congressional Papers photographs"
+      elsif collection_name == "Thomas P. O'Neill, Jr. Congressional Papers (Tip O'Neill Papers) photographs"
         "CA.2009.001"
       elsif collection_name == "Boston Gas Company Records"
         "MS.1986.088"
