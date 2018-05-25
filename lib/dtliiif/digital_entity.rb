@@ -88,7 +88,11 @@ module Dtliiif
     def owner
       owner = @cnf['marc_fields']['owner']
 
-      marc_record.xpath(owner, 'marc' => @marc_ns).text
+      if owner.include?('marc')
+        marc_record.xpath(owner, 'marc' => @marc_ns).text
+      else
+        owner
+      end
     end
 
     def rights_information
